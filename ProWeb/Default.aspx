@@ -20,6 +20,8 @@
     <p style="margin-bottom: 1px">
         Creation Date&nbsp;&nbsp;
         <input id="cdate" type="text" style="width: 230px;border: 1px solid #000000;border-radius: 2px"" /></p>
+    <p style="margin-bottom: 1px">
+        &nbsp;</p>
         
         <asp:Button ID="create" runat="server" Text="Create" />
 &nbsp;&nbsp;&nbsp;
