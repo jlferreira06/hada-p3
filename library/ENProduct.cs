@@ -31,7 +31,10 @@ namespace library
             }
         }
 
-        public string Name { get => name; set {
+        public string Name
+        {
+            get => name; set
+            {
                 if (value.Length <= 32)
                 {
                     name = value;
@@ -45,7 +48,10 @@ namespace library
 
         }
 
-        public int Amount { get => amount; set {
+        public int Amount
+        {
+            get => amount; set
+            {
                 if (value >= 0 && value <= 9999)
                 {
                     amount = value;
@@ -58,7 +64,10 @@ namespace library
         }
 
 
-        public float Price { get => price; set {
+        public float Price
+        {
+            get => price; set
+            {
                 if (value >= 0 && value <= 9999.99)
                 {
                     price = value;
@@ -70,14 +79,20 @@ namespace library
             }
         }
 
-        public DateTime Date { get => date; set {
-                
-                    date = value;
-               
+        public DateTime Date
+        {
+            get => date; set
+            {
+
+                date = value;
+
             }
         }
 
-        public int Category { get => category; set {
+        public int Category
+        {
+            get => category; set
+            {
                 if (value >= 0 && value <= 3)
                 {
                     category = value;
@@ -99,7 +114,7 @@ namespace library
             category = 0;
         }
 
-        public ENProduct(string code, string name, int amount, float price,int category, DateTime creationTable)
+        public ENProduct(string code, string name, int amount, float price, int category, DateTime creationTable)
         {
             Code = code;
             Name = name;
@@ -111,7 +126,17 @@ namespace library
 
         public bool Create()
         {
+            bool respuesta = false;
+
             CADProduct cad = new CADProduct();
-            return cad.Create(this);
+
+            if (!CADProduct.readProduct(this))
+            {
+                cad.Create(this);
+                respuesta = true;
+            }
+
+            return respuesta;
         }
+    }
 }
