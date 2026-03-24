@@ -88,5 +88,30 @@ namespace library
                 }
             }
         }
-    }
+
+        public ENProduct()
+        {
+            code = "";
+            name = "";
+            amount = 0;
+            price = 0;
+            date = DateTime.Now;
+            category = 0;
+        }
+
+        public ENProduct(string code, string name, int amount, float price,int category, DateTime creationTable)
+        {
+            Code = code;
+            Name = name;
+            Amount = amount;
+            Price = price;
+            Date = creationTable;
+            Category = category;
+        }
+
+        public bool Create()
+        {
+            CADProduct cad = new CADProduct();
+            return cad.Create(this);
+        }
 }
