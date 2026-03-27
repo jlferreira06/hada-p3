@@ -37,7 +37,7 @@ namespace library
 
         public bool Read(ENCategory en)
         {
-            bool ok = false;
+            bool respuesta = false;
             SqlConnection c = new SqlConnection(connectionString);
             try
             {
@@ -47,12 +47,12 @@ namespace library
                 if (dr.Read())
                 {
                     en.Name = dr["name"].ToString();
-                    ok = true;
+                    respuesta = true;
                 }
             }
-            catch (Exception ex) { ok = false; }
+            catch (Exception ex) { respuesta = false; }
             finally { c.Close(); }
-            return ok;
+            return respuesta;
         }
     }
 }
