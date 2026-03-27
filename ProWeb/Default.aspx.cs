@@ -11,7 +11,33 @@ namespace ProWeb
     {
         protected void Page_Load(object sender, EventArgs e)
         {
-            protected void createButton(object sender, EventArgs e)
+            if (!IsPostBack)
+            {
+                LoadCategories();
+                lbl.Text = "Gestión de base de datos";
+            }
+        }
+
+        
+
+        private void LoadCategories()
+        {
+            try
+            {
+                ENCategory cat = new ENCategory();
+                List<ENCategory> lista = cat.ReadAll();
+                category.DataSource = lista;
+                category.DataTextField = "Name"; 
+                category.DataValueField = "Id";   
+                category.DataBind();
+            }
+            catch (Exception ex)
+            {
+                lbl.Text = "Error al cargar categorías: " + ex.Message;
+            }
+        }
+
+        protected void createButton(object sender, EventArgs e)
             {
             try
             {
@@ -19,8 +45,8 @@ namespace ProWeb
                 en.Code = code.Text;
                 en.Name = name.Text;
                 en.Amount = int.Parse(amount.Text);
-                en.Price = double.Parse(price.Text);
-                en.Category = int.Parse(category.Text);
+                en.Price = float.Parse(price.Text);
+                en.Category = int.Parse(category.SelectedValue);
                 en.Date = DateTime.Now;
                 if (en.Create())
                 {
@@ -45,8 +71,8 @@ namespace ProWeb
                 en.Code = code.Text;
                 en.Name = name.Text;
                 en.Amount = int.Parse(amount.Text);
-                en.Price = double.Parse(price.Text);
-                en.Category = int.Parse(category.Text);
+                en.Price = float.Parse(price.Text);
+                en.Category = int.Parse(category.SelectedValue);
                 en.Date = DateTime.Now;
                 if (en.Update())
                 {
@@ -95,7 +121,7 @@ namespace ProWeb
                     name.Text = en.Name;
                     amount.Text = en.Amount.ToString();
                     price.Text = en.Price.ToString();
-                    category.Text = en.Category.ToString();
+                    category.SelectedValue = en.Category.ToString();
                     lbl.Text = "Producto leído correctamente.";
                 }
                 else
@@ -120,7 +146,7 @@ namespace ProWeb
                     name.Text = en.Name;
                     amount.Text = en.Amount.ToString();
                     price.Text = en.Price.ToString();
-                    category.Text = en.Category.ToString();
+                    category.SelectedValue = en.Category.ToString();
                     lbl.Text = "Primer producto leído correctamente.";
                 }
                 else
@@ -141,13 +167,13 @@ namespace ProWeb
             {
                 ENProduct en = new ENProduct();
                 en.Code = code.Text;
-                if (en.ReadPrevious())
+                if (en.ReadPrev())
                 {
                     code.Text = en.Code;
                     name.Text = en.Name;
                     amount.Text = en.Amount.ToString();
                     price.Text = en.Price.ToString();
-                    category.Text = en.Category.ToString();
+                    category.SelectedValue = en.Category.ToString();
                     lbl.Text = "Producto anterior leído correctamente.";
                 }
                 else
@@ -173,7 +199,7 @@ namespace ProWeb
                     name.Text = en.Name;
                     amount.Text = en.Amount.ToString();
                     price.Text = en.Price.ToString();
-                    category.Text = en.Category.ToString();
+                    category.SelectedValue = en.Category.ToString();
                     lbl.Text = "Siguiente producto leído correctamente.";
                 }
                 else

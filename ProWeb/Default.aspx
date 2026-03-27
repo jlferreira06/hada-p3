@@ -1,4 +1,7 @@
-﻿<asp:Content ID="Content2" ContentPlaceHolderID="ContentPlaceHolder2" runat="server">
+﻿<%@ Page Title="" Language="C#" MasterPageFile="~/Site1.Master" AutoEventWireup="true" CodeBehind="Default.aspx.cs" Inherits="ProWeb.Default_aspx" %>
+<asp:Content ID="Content1" ContentPlaceHolderID="head" runat="server">
+</asp:Content>
+<asp:Content ID="Content2" ContentPlaceHolderID="ContentPlaceHolder2" runat="server">
     <p style="margin-bottom: 1px;font-size: 30px">Products management</p>
     
     <p>Code: <asp:TextBox ID="code" runat="server" Width="250px"></asp:TextBox></p>
@@ -22,5 +25,5 @@
         <asp:Button ID="breadnext" runat="server" Text="Read Next" OnClick="readnButton" />
     </p>
     
-    <p><asp:Label ID="lblMsg" runat="server" ForeColor="Red"></asp:Label></p>
+    <p><asp:Label ID="lbl" runat="server" ForeColor="Red"></asp:Label></p>
 </asp:Content>
