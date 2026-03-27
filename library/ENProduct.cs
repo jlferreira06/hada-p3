@@ -141,49 +141,74 @@ namespace library
 
         public bool Update()
         {
+            bool respuesta = false;
+
             CADProduct cad = new CADProduct();
             ENProduct aux = new ENProduct();
             aux.Code = this.Code;
 
             if (cad.Read(aux))
             {
-                return cad.Update(this);
+                cad.Update(this);
+                respuesta = true;
             }
-            return false;
+            return respuesta;
         }
 
         public bool Delete()
         {
+            bool respuesta = false;
             CADProduct cad = new CADProduct();
             if (cad.Read(this))
             {
-                return cad.Delete(this);
+                respuesta = true;
+                cad.Delete(this);
             }
-            return false;
+            return respuesta;
         }
 
         public bool Read()
         {
+            bool respuesta = false;
             CADProduct cad = new CADProduct();
-            return cad.Read(this);
+            if (cad.Read(this))
+            {
+                respuesta = true;
+            }
+            return respuesta;
         }
 
         public bool ReadFirst()
         {
+            bool respuesta = false;
             CADProduct cad = new CADProduct();
-            return cad.ReadFirst(this);
+            if (cad.ReadFirst(this))
+            {
+                respuesta = true;
+            }
+            return respuesta;
         }
 
         public bool ReadNext()
         {
+            bool respuesta = false;
             CADProduct cad = new CADProduct();
-            return cad.ReadNext(this);
+            if (cad.ReadNext(this))
+            {
+                respuesta = true;
+            }
+            return respuesta;
         }
 
         public bool ReadPrev()
         {
+            bool respuesta = false;
             CADProduct cad = new CADProduct();
-            return cad.ReadPrev(this);
+            if (cad.ReadPrev(this))
+            {
+                respuesta = true;
+            }
+            return respuesta;
         }
 
     }
