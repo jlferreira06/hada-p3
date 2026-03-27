@@ -40,54 +40,65 @@ namespace ProWeb
 
         protected void createButton(object sender, EventArgs e)
         {
-            try
+            ENProduct en = new ENProduct();
+            en.Code = code.Text;
+            en.Name = name.Text;
+            en.Amount = int.Parse(amount.Text);
+            en.Price = float.Parse(price.Text);
+            en.Category = int.Parse(category.SelectedValue);
+
+            DateTime fechaAux;
+            if (DateTime.TryParse(date.Text, out fechaAux))
             {
-                ENProduct en = new ENProduct();
-                en.Code = code.Text;
-                en.Name = name.Text;
-                en.Amount = int.Parse(amount.Text);
-                en.Price = float.Parse(price.Text);
-                en.Category = int.Parse(category.SelectedValue);
-                en.Date = DateTime.Now;
+                en.Date = fechaAux;
+
                 if (en.Create())
                 {
-                    lbl.Text = "Producto creado.";
+                    lbl.Text = "Producto creado correctamente.";
+                    lbl.ForeColor = System.Drawing.Color.Green;
                 }
                 else
                 {
-                    lbl.Text = "Se ha producido un error intentado crear el producto";
-
+                    lbl.Text = "Error: No se pudo guardar en la base de datos.";
+                    lbl.ForeColor = System.Drawing.Color.Red;
                 }
             }
-            catch (Exception ex)
+            else
             {
-                lbl.Text = "Se ha producido el error: " + ex.Message;
+                lbl.Text = "Error: El formato de fecha no es válido. Use DD/MM/AAAA";
+                lbl.ForeColor = System.Drawing.Color.Red;
             }
         }
 
         protected void updateButton(object sender, EventArgs e)
         {
-            try
+            ENProduct en = new ENProduct();
+            en.Code = code.Text;
+            en.Name = name.Text;
+            en.Amount = int.Parse(amount.Text);
+            en.Price = float.Parse(price.Text);
+            en.Category = int.Parse(category.SelectedValue);
+
+            DateTime fechaAux;
+            if (DateTime.TryParse(date.Text, out fechaAux))
             {
-                ENProduct en = new ENProduct();
-                en.Code = code.Text;
-                en.Name = name.Text;
-                en.Amount = int.Parse(amount.Text);
-                en.Price = float.Parse(price.Text);
-                en.Category = int.Parse(category.SelectedValue);
-                en.Date = DateTime.Now;
+                en.Date = fechaAux;
+
                 if (en.Update())
                 {
-                    lbl.Text = "Producto actualizado.";
+                    lbl.Text = "Producto actualizado correctamente.";
+                    lbl.ForeColor = System.Drawing.Color.Green;
                 }
                 else
                 {
-                    lbl.Text = "Se ha producido un error intentado actualizar el producto";
+                    lbl.Text = "Error: No se pudo actualizar el producto en la base de datos.";
+                    lbl.ForeColor = System.Drawing.Color.Red;
                 }
             }
-            catch (Exception ex)
+            else
             {
-                lbl.Text = "Se ha producido el error: " + ex.Message;
+                lbl.Text = "Error: La fecha de actualización no es válida (Use DD/MM/AAAA).";
+                lbl.ForeColor = System.Drawing.Color.Red;
             }
         }
 
