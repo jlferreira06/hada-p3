@@ -130,7 +130,7 @@ namespace library
 
             CADProduct cad = new CADProduct();
 
-            if (!cad.read(this))
+            if (!cad.Read(this))
             {
                 cad.Create(this);
                 respuesta = true;
@@ -145,7 +145,6 @@ namespace library
             ENProduct aux = new ENProduct();
             aux.Code = this.Code;
 
-            // Si el producto existe, lo actualizamos
             if (cad.Read(aux))
             {
                 return cad.Update(this);
@@ -156,7 +155,6 @@ namespace library
         public bool Delete()
         {
             CADProduct cad = new CADProduct();
-            // Si el producto existe, lo borramos
             if (cad.Read(this))
             {
                 return cad.Delete(this);
