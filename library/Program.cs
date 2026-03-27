@@ -10,13 +10,6 @@ namespace library
     {
         static void Main(string[] args)
         {
-
-
-
-
-
-
-
         }
     }
 }
