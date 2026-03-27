@@ -13,8 +13,9 @@ namespace library
     {
         private string constring;
 
-        public CADProduct() { 
-        constring = @"Data Source=(LocalDB)\MSSQLLocalDB;AttachDbFilename=|DataDirectory|\Database.mdf;Integrated Security=True";
+        public CADProduct()
+        {
+            constring = @"Data Source=(LocalDB)\MSSQLLocalDB;AttachDbFilename=|DataDirectory|\Database.mdf;Integrated Security=True";
         }
 
         public bool Create(ENProduct en)
@@ -30,20 +31,15 @@ namespace library
 
                     SqlCommand com = new SqlCommand(sql, c);
                     com.Parameters.AddWithValue("@code", en.Code);
-
                     com.Parameters.AddWithValue("@name", en.Name);
-
                     com.Parameters.AddWithValue("@amount", en.Amount);
-
                     com.Parameters.AddWithValue("@price", en.Price);
-
                     com.Parameters.AddWithValue("@cat", en.Category);
-
                     com.Parameters.AddWithValue("@date", en.Date);
 
                     com.ExecuteNonQuery();
                 }
-                catch (Exception ex)
+                catch (SqlException ex)
                 {
                     respuesta = false;
                     Console.WriteLine("Product operation has failed. Error: {0}", ex.Message);
@@ -64,22 +60,16 @@ namespace library
                                  "category=@cat, creationDate=@date WHERE code=@code";
 
                     SqlCommand com = new SqlCommand(sql, c);
-
                     com.Parameters.AddWithValue("@code", en.Code);
-
                     com.Parameters.AddWithValue("@name", en.Name);
-
                     com.Parameters.AddWithValue("@amount", en.Amount);
-
                     com.Parameters.AddWithValue("@price", en.Price);
-
                     com.Parameters.AddWithValue("@cat", en.Category);
-
                     com.Parameters.AddWithValue("@date", en.Date);
 
                     com.ExecuteNonQuery();
                 }
-                catch (Exception ex)
+                catch (SqlException ex)
                 {
                     respuesta = false;
                     Console.WriteLine("Product operation has failed. Error: {0}", ex.Message);
@@ -100,7 +90,7 @@ namespace library
                     com.Parameters.AddWithValue("@code", en.Code);
                     com.ExecuteNonQuery();
                 }
-                catch (Exception ex)
+                catch (SqlException ex)
                 {
                     respuesta = false;
                     Console.WriteLine("Product operation has failed. Error: {0}", ex.Message);
@@ -130,7 +120,7 @@ namespace library
                         respuesta = true;
                     }
                 }
-                catch (Exception ex)
+                catch (SqlException ex)
                 {
                     respuesta = false;
                     Console.WriteLine("Product operation has failed. Error: {0}", ex.Message);
@@ -176,7 +166,7 @@ namespace library
                         respuesta = true;
                     }
                 }
-                catch (Exception ex)
+                catch (SqlException ex)
                 {
                     respuesta = false;
                     Console.WriteLine("Product operation has failed. Error: {0}", ex.Message);

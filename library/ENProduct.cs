@@ -13,7 +13,7 @@ namespace library
         private string name;
         private int amount;
         private float price;
-        private DateTime date;
+        private DateTime creationDate;
         private int category;
 
         public string Code
@@ -81,10 +81,10 @@ namespace library
 
         public DateTime Date
         {
-            get => date; set
+            get => creationDate; set
             {
 
-                date = value;
+                creationDate = value;
 
             }
         }
@@ -110,17 +110,17 @@ namespace library
             name = "";
             amount = 0;
             price = 0;
-            date = DateTime.Now;
+            creationDate = DateTime.Now;
             category = 0;
         }
 
-        public ENProduct(string code, string name, int amount, float price, int category, DateTime creationTable)
+        public ENProduct(string code, string name, int amount, float price, int category, DateTime creationDate)
         {
             Code = code;
             Name = name;
             Amount = amount;
             Price = price;
-            Date = creationTable;
+            Date = creationDate;
             Category = category;
         }
 
