@@ -1,41 +1,26 @@
-﻿<%@ Page Title="" Language="C#" MasterPageFile="~/Site1.Master" AutoEventWireup="true" CodeBehind="Default.aspx.cs" Inherits="ProWeb.Default_aspx" %>
-<asp:Content ID="Content1" ContentPlaceHolderID="head" runat="server">
-</asp:Content>
-<asp:Content ID="Content2" ContentPlaceHolderID="ContentPlaceHolder2" runat="server">
-    <p style="margin-bottom: 1px;font-size: 30px">
-        Products management</p>
-    <p style="margin-bottom: 1px">
-        Code&nbsp;    
-        <input id="code" type="text" style="width: 250px;border: 1px solid #000000;border-radius: 2px"/></p>
-    <p style="margin-bottom: 1px">
-        Name&nbsp;&nbsp;
-        <input id="name" type="text" style="width: 260px;border: 1px solid #000000;border-radius: 2px" /></p>
-    <p style="margin-bottom: 1px">
-        Amount&nbsp;&nbsp; <input id="amount" type="text"style="width: 150px;border: 1px solid #000000;border-radius: 2px"" /></p>
-    <p style="margin-bottom: 1px">
-        Category&nbsp; </p>
-    <p style="margin-bottom: 1px">
-        Price&nbsp;
-        <input id="price" type="text" style="width: 100px;border: 1px solid #000000;border-radius: 2px""/></p>
-    <p style="margin-bottom: 1px">
-        Creation Date&nbsp;&nbsp;
-        <input id="cdate" type="text" style="width: 230px;border: 1px solid #000000;border-radius: 2px"" /></p>
-    <p style="margin-bottom: 1px">
-        &nbsp;</p>
-        
-        <asp:Button ID="create" runat="server" Text="Create" />
-&nbsp;&nbsp;&nbsp;
-        <asp:Button ID="update" runat="server" Text="Update" />
-&nbsp;&nbsp;&nbsp;
-        <asp:Button ID="delete" runat="server" Text="Delete" />
-&nbsp;&nbsp;&nbsp;
-        <asp:Button ID="read" runat="server" Text="Read" />
-&nbsp;&nbsp;&nbsp;
-        <asp:Button ID="readf" runat="server" Text="Read First" />
-&nbsp;&nbsp;&nbsp;
-        <asp:Button ID="readp" runat="server" Text="Read Prev" />
-&nbsp;&nbsp;&nbsp;
-        <asp:Button ID="readn" runat="server" Text="Read Next" />
-            
+﻿<asp:Content ID="Content2" ContentPlaceHolderID="ContentPlaceHolder2" runat="server">
+    <p style="margin-bottom: 1px;font-size: 30px">Products management</p>
+    
+    <p>Code: <asp:TextBox ID="txtCode" runat="server" Width="250px"></asp:TextBox></p>
+    <p>Name: <asp:TextBox ID="txtName" runat="server" Width="260px"></asp:TextBox></p>
+    <p>Amount: <asp:TextBox ID="txtAmount" runat="server" Width="150px"></asp:TextBox></p>
+    
+    <p>Category: 
+        <asp:DropDownList ID="ddlCategory" runat="server" Width="150px"></asp:DropDownList>
     </p>
+    
+    <p>Price: <asp:TextBox ID="txtPrice" runat="server" Width="100px"></asp:TextBox></p>
+    <p>Creation Date: <asp:TextBox ID="txtDate" runat="server" Width="230px" ReadOnly="true"></asp:TextBox></p>
+
+    <p>
+        <asp:Button ID="btnCreate" runat="server" Text="Create" OnClick="btnCreate_Click" />
+        <asp:Button ID="btnUpdate" runat="server" Text="Update" OnClick="btnUpdate_Click" />
+        <asp:Button ID="btnDelete" runat="server" Text="Delete" OnClick="btnDelete_Click" />
+        <asp:Button ID="btnRead" runat="server" Text="Read" OnClick="btnRead_Click" />
+        <asp:Button ID="btnReadFirst" runat="server" Text="Read First" OnClick="btnReadFirst_Click" />
+        <asp:Button ID="btnReadPrev" runat="server" Text="Read Prev" OnClick="btnReadPrev_Click" />
+        <asp:Button ID="btnReadNext" runat="server" Text="Read Next" OnClick="btnReadNext_Click" />
+    </p>
+    
+    <p><asp:Label ID="lblMsg" runat="server" ForeColor="Red"></asp:Label></p>
 </asp:Content>
