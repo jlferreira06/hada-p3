@@ -139,13 +139,54 @@ namespace library
             return respuesta;
         }
 
+        public bool Update()
+        {
+            CADProduct cad = new CADProduct();
+            ENProduct aux = new ENProduct();
+            aux.Code = this.Code;
+
+            // Si el producto existe, lo actualizamos
+            if (cad.Read(aux))
+            {
+                return cad.Update(this);
+            }
+            return false;
+        }
+
+        public bool Delete()
+        {
+            CADProduct cad = new CADProduct();
+            // Si el producto existe, lo borramos
+            if (cad.Read(this))
+            {
+                return cad.Delete(this);
+            }
+            return false;
+        }
+
         public bool Read()
         {
             CADProduct cad = new CADProduct();
             return cad.Read(this);
         }
 
+        public bool ReadFirst()
+        {
+            CADProduct cad = new CADProduct();
+            return cad.ReadFirst(this);
+        }
 
+        public bool ReadNext()
+        {
+            CADProduct cad = new CADProduct();
+            return cad.ReadNext(this);
+        }
+
+        public bool ReadPrev()
+        {
+            CADProduct cad = new CADProduct();
+            return cad.ReadPrev(this);
+        }
 
     }
 }
