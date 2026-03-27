@@ -13,13 +13,13 @@
     <p>Creation Date: <asp:TextBox ID="date" runat="server" Width="230px" ReadOnly="true"></asp:TextBox></p>
 
     <p>
-        <asp:Button ID="bcreate" runat="server" Text="Create" OnClick="btnCreate_Click" />
-        <asp:Button ID="bupdate" runat="server" Text="Update" OnClick="btnUpdate_Click" />
-        <asp:Button ID="bdelete" runat="server" Text="Delete" OnClick="btnDelete_Click" />
-        <asp:Button ID="bread" runat="server" Text="Read" OnClick="btnRead_Click" />
-        <asp:Button ID="breadfirst" runat="server" Text="Read First" OnClick="btnReadFirst_Click" />
-        <asp:Button ID="breadprev" runat="server" Text="Read Prev" OnClick="btnReadPrev_Click" />
-        <asp:Button ID="breadnext" runat="server" Text="Read Next" OnClick="btnReadNext_Click" />
+        <asp:Button ID="bcreate" runat="server" Text="Create" OnClick="createButton" />
+        <asp:Button ID="bupdate" runat="server" Text="Update" OnClick="updateButton" />
+        <asp:Button ID="bdelete" runat="server" Text="Delete" OnClick="deleteButton" />
+        <asp:Button ID="bread" runat="server" Text="Read" OnClick="readButton" />
+        <asp:Button ID="breadfirst" runat="server" Text="Read First" OnClick="readfButton" />
+        <asp:Button ID="breadprev" runat="server" Text="Read Prev" OnClick="readpButton" />
+        <asp:Button ID="breadnext" runat="server" Text="Read Next" OnClick="readnButton" />
     </p>
     
     <p><asp:Label ID="lblMsg" runat="server" ForeColor="Red"></asp:Label></p>
