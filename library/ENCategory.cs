@@ -12,8 +12,19 @@ namespace library
         public int Id { get; set; }
         public string Name { get; set; }
 
-        // Constructor vacío
-        public ENCategory() { }
+        public ENCategory()
+        {
+            _id = 0;
+            _name = "";
+        }
+
+
+        public ENCategory(int id, string name)
+        {
+            _id = id;
+            _name = name;
+        }
+
 
         // Método que pide la práctica: leer todas las categorías
         public List<ENCategory> ReadAll()
