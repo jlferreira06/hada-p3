@@ -30,7 +30,9 @@ namespace library
                     lista.Add(cat);
                 }
             }
-            catch (Exception ex) { }
+            catch (Exception ex) {
+                Console.WriteLine("Product operation has failed. Error: {0}", ex.Message);
+            }
             finally { c.Close(); }
             return lista;
         }
@@ -50,7 +52,10 @@ namespace library
                     respuesta = true;
                 }
             }
-            catch (Exception ex) { respuesta = false; }
+            catch (Exception ex) { 
+                respuesta = false;
+                Console.WriteLine("Product operation has failed. Error: {0}", ex.Message);
+            }
             finally { c.Close(); }
             return respuesta;
         }

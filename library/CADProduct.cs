@@ -28,10 +28,15 @@ namespace library
 
                     SqlCommand com = new SqlCommand(sql, c);
                     com.Parameters.AddWithValue("@code", en.Code);
+
                     com.Parameters.AddWithValue("@name", en.Name);
+
                     com.Parameters.AddWithValue("@amount", en.Amount);
+
                     com.Parameters.AddWithValue("@price", en.Price);
+
                     com.Parameters.AddWithValue("@cat", en.Category);
+
                     com.Parameters.AddWithValue("@date", en.Date);
 
                     com.ExecuteNonQuery();
@@ -39,7 +44,7 @@ namespace library
                 catch (Exception ex)
                 {
                     respuesta = false;
-                    System.Diagnostics.Debug.WriteLine("Error Create: " + ex.Message);
+                    Console.WriteLine("Product operation has failed. Error: {0}", ex.Message);
                 }
             }
             return respuesta;
@@ -57,11 +62,17 @@ namespace library
                                  "category=@cat, creationDate=@date WHERE code=@code";
 
                     SqlCommand com = new SqlCommand(sql, c);
+
                     com.Parameters.AddWithValue("@code", en.Code);
+
                     com.Parameters.AddWithValue("@name", en.Name);
+
                     com.Parameters.AddWithValue("@amount", en.Amount);
+
                     com.Parameters.AddWithValue("@price", en.Price);
+
                     com.Parameters.AddWithValue("@cat", en.Category);
+
                     com.Parameters.AddWithValue("@date", en.Date);
 
                     com.ExecuteNonQuery();
@@ -69,7 +80,7 @@ namespace library
                 catch (Exception ex)
                 {
                     respuesta = false;
-                    System.Diagnostics.Debug.WriteLine("Error Update: " + ex.Message);
+                    Console.WriteLine("Product operation has failed. Error: {0}", ex.Message);
                 }
             }
             return respuesta;
@@ -90,6 +101,7 @@ namespace library
                 catch (Exception ex)
                 {
                     respuesta = false;
+                    Console.WriteLine("Product operation has failed. Error: {0}", ex.Message);
                 }
             }
             return respuesta;
@@ -116,7 +128,11 @@ namespace library
                         respuesta = true;
                     }
                 }
-                catch (Exception ex) { respuesta = false; }
+                catch (Exception ex)
+                {
+                    respuesta = false;
+                    Console.WriteLine("Product operation has failed. Error: {0}", ex.Message);
+                }
             }
             return respuesta;
         }
@@ -158,7 +174,11 @@ namespace library
                         respuesta = true;
                     }
                 }
-                catch (Exception) { respuesta = false; }
+                catch (Exception ex)
+                {
+                    respuesta = false;
+                    Console.WriteLine("Product operation has failed. Error: {0}", ex.Message);
+                }
             }
             return respuesta;
         }

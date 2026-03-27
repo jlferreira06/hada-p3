@@ -40,64 +40,80 @@ namespace ProWeb
 
         protected void createButton(object sender, EventArgs e)
         {
-            ENProduct en = new ENProduct();
-            en.Code = code.Text;
-            en.Name = name.Text;
-            en.Amount = int.Parse(amount.Text);
-            en.Price = float.Parse(price.Text);
-            en.Category = int.Parse(category.SelectedValue);
-
-            DateTime fechaAux;
-            if (DateTime.TryParse(date.Text, out fechaAux))
+            try
             {
-                en.Date = fechaAux;
+                ENProduct en = new ENProduct();
+                en.Code = code.Text;
+                en.Name = name.Text;
+                en.Amount = int.Parse(amount.Text);
+                en.Price = float.Parse(price.Text);
+                en.Category = int.Parse(category.SelectedValue);
 
-                if (en.Create())
+                DateTime fechaAux;
+                if (DateTime.TryParse(date.Text, out fechaAux))
                 {
-                    lbl.Text = "Producto creado correctamente.";
-                    lbl.ForeColor = System.Drawing.Color.Green;
+                    en.Date = fechaAux;
+
+                    if (en.Create())
+                    {
+                        lbl.Text = "La operación se ha realizado con éxito.";
+                        lbl.ForeColor = System.Drawing.Color.Green;
+                    }
+                    else
+                    {
+                        lbl.Text = "Error: El producto ya existe en la base de datos.";
+                        lbl.ForeColor = System.Drawing.Color.Red;
+                    }
                 }
                 else
                 {
-                    lbl.Text = "Error: No se pudo guardar en la base de datos.";
+                    lbl.Text = "Error: El formato de fecha no es válido. Use DD/MM/AAAA";
                     lbl.ForeColor = System.Drawing.Color.Red;
                 }
             }
-            else
+            catch (Exception ex)
             {
-                lbl.Text = "Error: El formato de fecha no es válido. Use DD/MM/AAAA";
+                lbl.Text = "Error de validación: " + ex.Message;
                 lbl.ForeColor = System.Drawing.Color.Red;
             }
         }
 
         protected void updateButton(object sender, EventArgs e)
         {
-            ENProduct en = new ENProduct();
-            en.Code = code.Text;
-            en.Name = name.Text;
-            en.Amount = int.Parse(amount.Text);
-            en.Price = float.Parse(price.Text);
-            en.Category = int.Parse(category.SelectedValue);
-
-            DateTime fechaAux;
-            if (DateTime.TryParse(date.Text, out fechaAux))
+            try
             {
-                en.Date = fechaAux;
+                ENProduct en = new ENProduct();
+                en.Code = code.Text;
+                en.Name = name.Text;
+                en.Amount = int.Parse(amount.Text);
+                en.Price = float.Parse(price.Text);
+                en.Category = int.Parse(category.SelectedValue);
 
-                if (en.Update())
+                DateTime fechaAux;
+                if (DateTime.TryParse(date.Text, out fechaAux))
                 {
-                    lbl.Text = "Producto actualizado correctamente.";
-                    lbl.ForeColor = System.Drawing.Color.Green;
+                    en.Date = fechaAux;
+
+                    if (en.Update())
+                    {
+                        lbl.Text = "La operación se ha realizado con éxito.";
+                        lbl.ForeColor = System.Drawing.Color.Green;
+                    }
+                    else
+                    {
+                        lbl.Text = "Error: No se pudo actualizar el producto (puede que no exista).";
+                        lbl.ForeColor = System.Drawing.Color.Red;
+                    }
                 }
                 else
                 {
-                    lbl.Text = "Error: No se pudo actualizar el producto en la base de datos.";
+                    lbl.Text = "Error: La fecha de actualización no es válida.";
                     lbl.ForeColor = System.Drawing.Color.Red;
                 }
             }
-            else
+            catch (Exception ex)
             {
-                lbl.Text = "Error: La fecha de actualización no es válida (Use DD/MM/AAAA).";
+                lbl.Text = "Error de validación: " + ex.Message;
                 lbl.ForeColor = System.Drawing.Color.Red;
             }
         }
@@ -135,16 +151,21 @@ namespace ProWeb
                     amount.Text = en.Amount.ToString();
                     price.Text = en.Price.ToString();
                     category.SelectedValue = en.Category.ToString();
-                    lbl.Text = "Producto leído correctamente.";
+                    date.Text = en.Date.ToString("dd/MM/yyyy");
+
+                    lbl.Text = "La operación se ha realizado con éxito.";
+                    lbl.ForeColor = System.Drawing.Color.Green;
                 }
                 else
                 {
-                    lbl.Text = "Se ha producido un error intentado leer el producto";
+                    lbl.Text = "Se ha producido un error intentado leer el producto.";
+                    lbl.ForeColor = System.Drawing.Color.Red;
                 }
             }
             catch (Exception ex)
             {
                 lbl.Text = "Se ha producido el error: " + ex.Message;
+                lbl.ForeColor = System.Drawing.Color.Red;
             }
         }
 
@@ -160,18 +181,22 @@ namespace ProWeb
                     amount.Text = en.Amount.ToString();
                     price.Text = en.Price.ToString();
                     category.SelectedValue = en.Category.ToString();
-                    lbl.Text = "Primer producto leído correctamente.";
+                    date.Text = en.Date.ToString("dd/MM/yyyy");
+
+                    lbl.Text = "La operación se ha realizado con éxito.";
+                    lbl.ForeColor = System.Drawing.Color.Green;
                 }
                 else
                 {
-                    lbl.Text = "Se ha producido un error intentado leer el primer producto";
+                    lbl.Text = "No hay productos en la base de datos.";
+                    lbl.ForeColor = System.Drawing.Color.Red;
                 }
             }
             catch (Exception ex)
             {
                 lbl.Text = "Se ha producido el error: " + ex.Message;
+                lbl.ForeColor = System.Drawing.Color.Red;
             }
-
         }
 
         protected void readpButton(object sender, EventArgs e)
@@ -187,16 +212,21 @@ namespace ProWeb
                     amount.Text = en.Amount.ToString();
                     price.Text = en.Price.ToString();
                     category.SelectedValue = en.Category.ToString();
-                    lbl.Text = "Producto anterior leído correctamente.";
+                    date.Text = en.Date.ToString("dd/MM/yyyy");
+
+                    lbl.Text = "La operación se ha realizado con éxito.";
+                    lbl.ForeColor = System.Drawing.Color.Green;
                 }
                 else
                 {
-                    lbl.Text = "Se ha producido un error intentado leer el producto anterior";
+                    lbl.Text = "No hay más productos anteriores.";
+                    lbl.ForeColor = System.Drawing.Color.Red;
                 }
             }
             catch (Exception ex)
             {
                 lbl.Text = "Se ha producido el error: " + ex.Message;
+                lbl.ForeColor = System.Drawing.Color.Red;
             }
         }
 
@@ -213,16 +243,21 @@ namespace ProWeb
                     amount.Text = en.Amount.ToString();
                     price.Text = en.Price.ToString();
                     category.SelectedValue = en.Category.ToString();
-                    lbl.Text = "Siguiente producto leído correctamente.";
+                    date.Text = en.Date.ToString("dd/MM/yyyy");
+
+                    lbl.Text = "La operación se ha realizado con éxito.";
+                    lbl.ForeColor = System.Drawing.Color.Green;
                 }
                 else
                 {
-                    lbl.Text = "Se ha producido un error intentado leer el siguiente producto";
+                    lbl.Text = "No hay más productos siguientes.";
+                    lbl.ForeColor = System.Drawing.Color.Red;
                 }
             }
             catch (Exception ex)
             {
                 lbl.Text = "Se ha producido el error: " + ex.Message;
+                lbl.ForeColor = System.Drawing.Color.Red;
             }
         }
     }
