@@ -130,7 +130,7 @@ namespace library
 
             CADProduct cad = new CADProduct();
 
-            if (!CADProduct.readProduct(this))
+            if (!cad.read(this))
             {
                 cad.Create(this);
                 respuesta = true;
@@ -138,5 +138,14 @@ namespace library
 
             return respuesta;
         }
+
+        public bool Read()
+        {
+            CADProduct cad = new CADProduct();
+            return cad.Read(this);
+        }
+
+
+
     }
 }

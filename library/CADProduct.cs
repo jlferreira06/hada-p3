@@ -45,9 +45,9 @@ namespace library
         }
 
 
-        public bool update(ENProduct en)
+        public bool Update(ENProduct en)
         {
-            bool ok = true;
+            bool respuesta = true;
             try
             {
                 SqlConnection c = new SqlConnection(constring);
@@ -61,15 +61,15 @@ namespace library
             }
             catch (SqlException ex)
             {
-                ok = false;
+                respuesta = false;
                 Console.WriteLine("Product operation has failed. Error: {0}", ex.Message);
             }
-            return ok;
+            return respuesta;
         }
 
-        public bool delete(ENProduct en)
+        public bool Delete(ENProduct en)
         {
-            bool ok = true;
+            bool respuesta = true;
             try
             {
                 SqlConnection c = new SqlConnection(constring);
@@ -81,15 +81,15 @@ namespace library
             }
             catch (SqlException ex)
             {
-                ok = false;
+                respuesta = false;
                 Console.WriteLine("Product operation has failed. Error: {0}", ex.Message);
             }
-            return ok;
+            return respuesta;
         }
 
-        public bool read(ENProduct en)
+        public bool Read(ENProduct en)
         {
-            bool ok = false;
+            bool respuesta = false;
             try
             {
                 SqlConnection c = new SqlConnection(constring);
@@ -104,22 +104,22 @@ namespace library
                     en.Price = float.Parse(dr["price"].ToString());
                     en.Category = int.Parse(dr["category"].ToString());
                     en.CreationDate = DateTime.Parse(dr["creationDate"].ToString());
-                    ok = true;
+                    respuesta = true;
                 }
                 c.Close();
             }
             catch (SqlException ex)
             {
-                ok = false;
+                respuesta = false;
                 Console.WriteLine("Product operation has failed. Error: {0}", ex.Message);
             }
-            return ok;
+            return respuesta;
         }
 
 
-        public bool readFirst(ENProduct en)
+        public bool ReadFirst(ENProduct en)
         {
-            bool ok = false;
+            bool respuesta = false;
             try
             {
                 SqlConnection c = new SqlConnection(constring);
@@ -135,21 +135,21 @@ namespace library
                     en.Price = float.Parse(dr["price"].ToString());
                     en.Category = int.Parse(dr["category"].ToString());
                     en.CreationDate = DateTime.Parse(dr["creationDate"].ToString());
-                    ok = true;
+                    respuesta = true;
                 }
                 c.Close();
             }
             catch (SqlException ex)
             {
-                ok = false;
+                respuesta = false;
                 Console.WriteLine("Product operation has failed. Error: {0}", ex.Message);
             }
-            return ok;
+            return respuesta;
         }
 
-        public bool readNext(ENProduct en)
+        public bool ReadNext(ENProduct en)
         {
-            bool ok = false;
+            bool respuesta = false;
             try
             {
                 SqlConnection c = new SqlConnection(constring);
@@ -165,21 +165,21 @@ namespace library
                     en.Price = float.Parse(dr["price"].ToString());
                     en.Category = int.Parse(dr["category"].ToString());
                     en.CreationDate = DateTime.Parse(dr["creationDate"].ToString());
-                    ok = true;
+                    respuesta = true;
                 }
                 c.Close();
             }
             catch (SqlException ex)
             {
-                ok = false;
+                respuesta = false;
                 Console.WriteLine("Product operation has failed. Error: {0}", ex.Message);
             }
-            return ok;
+            return respuesta;
         }
 
-        public bool readPrev(ENProduct en)
+        public bool ReadPrev(ENProduct en)
         {
-            bool ok = false;
+            bool respuesta = false;
             try
             {
                 SqlConnection c = new SqlConnection(constring);
@@ -195,16 +195,16 @@ namespace library
                     en.Price = float.Parse(dr["price"].ToString());
                     en.Category = int.Parse(dr["category"].ToString());
                     en.CreationDate = DateTime.Parse(dr["creationDate"].ToString());
-                    ok = true;
+                    respuesta = true;
                 }
                 c.Close();
             }
             catch (SqlException ex)
             {
-                ok = false;
+                respuesta = false;
                 Console.WriteLine("Product operation has failed. Error: {0}", ex.Message);
             }
-            return ok;
+            return respuesta;
         }
 
 
