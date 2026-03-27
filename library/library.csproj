@@ -43,6 +43,12 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+<<<<<<< HEAD
+=======
+    <Compile Include="CADCategory.cs" />
+    <Compile Include="CADProduct.cs" />
+    <Compile Include="ENCategory.cs" />
+>>>>>>> devel1
     <Compile Include="ENProduct.cs" />
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
