@@ -47,7 +47,7 @@ namespace library
 
 
         }
-
+        
         public int Amount
         {
             get => amount; set

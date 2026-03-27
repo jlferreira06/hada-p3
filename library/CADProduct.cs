@@ -30,7 +30,7 @@ namespace library
                 c.Open();
                 string sql = "INSERT INTO Products (code, name, amount, price, category, creationDate) " +
                              "VALUES ('" + en.Code + "', '" + en.Name + "', " + en.Amount + ", " +
-                             en.Price + ", " + en.Category + ", '" + en.CreationDate.ToString("yyyy-MM-dd HH:mm:ss") + "')";
+                             en.Price + ", " + en.Category + ", '" + en.Date.ToString("yyyy-MM-dd HH:mm:ss") + "')";
                 SqlCommand com = new SqlCommand(sql, c);
                 com.ExecuteNonQuery();
                 c.Close();
@@ -103,7 +103,7 @@ namespace library
                     en.Amount = int.Parse(dr["amount"].ToString());
                     en.Price = float.Parse(dr["price"].ToString());
                     en.Category = int.Parse(dr["category"].ToString());
-                    en.CreationDate = DateTime.Parse(dr["creationDate"].ToString());
+                    en.Date = DateTime.Parse(dr["creationDate"].ToString());
                     respuesta = true;
                 }
                 c.Close();
@@ -134,7 +134,7 @@ namespace library
                     en.Amount = int.Parse(dr["amount"].ToString());
                     en.Price = float.Parse(dr["price"].ToString());
                     en.Category = int.Parse(dr["category"].ToString());
-                    en.CreationDate = DateTime.Parse(dr["creationDate"].ToString());
+                    en.Date = DateTime.Parse(dr["creationDate"].ToString());
                     respuesta = true;
                 }
                 c.Close();
@@ -164,7 +164,7 @@ namespace library
                     en.Amount = int.Parse(dr["amount"].ToString());
                     en.Price = float.Parse(dr["price"].ToString());
                     en.Category = int.Parse(dr["category"].ToString());
-                    en.CreationDate = DateTime.Parse(dr["creationDate"].ToString());
+                    en.Date = DateTime.Parse(dr["creationDate"].ToString());
                     respuesta = true;
                 }
                 c.Close();
@@ -194,7 +194,7 @@ namespace library
                     en.Amount = int.Parse(dr["amount"].ToString());
                     en.Price = float.Parse(dr["price"].ToString());
                     en.Category = int.Parse(dr["category"].ToString());
-                    en.CreationDate = DateTime.Parse(dr["creationDate"].ToString());
+                    en.Date = DateTime.Parse(dr["creationDate"].ToString());
                     respuesta = true;
                 }
                 c.Close();
