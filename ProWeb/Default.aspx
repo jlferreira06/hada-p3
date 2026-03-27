@@ -13,7 +13,7 @@
     </p>
     
     <p>Price: <asp:TextBox ID="price" runat="server" Width="100px"></asp:TextBox></p>
-    <p>Creation Date: <asp:TextBox ID="date" runat="server" Width="230px" ReadOnly="true"></asp:TextBox></p>
+    <p>Creation Date: <asp:TextBox ID="date" runat="server" Width="230px" ></asp:TextBox></p>
 
     <p>
         <asp:Button ID="bcreate" runat="server" Text="Create" OnClick="createButton" />

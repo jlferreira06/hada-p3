@@ -43,7 +43,9 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="CADCategory.cs" />
     <Compile Include="CADProduct.cs" />
+    <Compile Include="ENCategory.cs" />
     <Compile Include="ENProduct.cs" />
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
