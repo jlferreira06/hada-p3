@@ -1,4 +1,5 @@
-﻿using System;
+﻿using library;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Web;
@@ -18,7 +19,7 @@ namespace ProWeb
             }
         }
 
-        
+
 
         private void LoadCategories()
         {
@@ -27,8 +28,8 @@ namespace ProWeb
                 ENCategory cat = new ENCategory();
                 List<ENCategory> lista = cat.ReadAll();
                 category.DataSource = lista;
-                category.DataTextField = "Name"; 
-                category.DataValueField = "Id";   
+                category.DataTextField = "Name";
+                category.DataValueField = "Id";
                 category.DataBind();
             }
             catch (Exception ex)
@@ -38,7 +39,7 @@ namespace ProWeb
         }
 
         protected void createButton(object sender, EventArgs e)
-            {
+        {
             try
             {
                 ENProduct en = new ENProduct();
@@ -57,7 +58,8 @@ namespace ProWeb
                     lbl.Text = "Se ha producido un error intentado crear el producto";
 
                 }
-            }catch (Exception ex)
+            }
+            catch (Exception ex)
             {
                 lbl.Text = "Se ha producido el error: " + ex.Message;
             }
@@ -213,3 +215,4 @@ namespace ProWeb
             }
         }
     }
+}
