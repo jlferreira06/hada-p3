@@ -11,9 +11,11 @@ namespace library
 {
     public class CADProduct
     {
-        private string constring = @"Data Source=(LocalDB)\MSSQLLocalDB;AttachDbFilename=|DataDirectory|\Database.mdf;Integrated Security=True";
+        private string constring;
 
-        public CADProduct() { }
+        public CADProduct() { 
+        constring = @"Data Source=(LocalDB)\MSSQLLocalDB;AttachDbFilename=|DataDirectory|\Database.mdf;Integrated Security=True";
+        }
 
         public bool Create(ENProduct en)
         {
